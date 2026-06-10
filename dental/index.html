@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Park Dental &amp; Denture Clinic — Family Dentistry in Lakewood &amp; Kent, WA</title>
+<meta name="description" content="Family-owned dental clinic in Lakewood & Kent, WA. Affordable dentures, implants, $800 zirconia crowns, cleanings and gentle family dental care. New patients welcome." />
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<!-- Inter typeface -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          serif: ['Fraunces', 'Georgia', 'serif'],
+        },
+        colors: {
+          teal: {
+            450: '#1e9e8f',
+          }
+        },
+        keyframes: {
+          ticker: {
+            '0%': { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+          },
+          fadeUp: {
+            '0%': { opacity: '0', transform: 'translateY(24px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        },
+        animation: {
+          ticker: 'ticker 36s linear infinite',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  /* ---- Base polish ---- */
+  ::selection { background: #0d9488; color: #fff; }
+  html { -webkit-font-smoothing: antialiased; }
+
+  /* Scroll-reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* Soft grain texture for warmth */
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.04'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Pause ticker on hover */
+  .ticker-track:hover { animation-play-state: paused; }
+
+  /* Location tab switcher */
+  .loc-tab[aria-selected="true"] { background: #0f766e; color: #fff; }
+  .loc-tab { transition: all .25s ease; }
+  .loc-panel.hidden { display: none !important; }
+</style>
+</head>
+
+<body class="bg-[#faf8f5] text-stone-800 font-sans antialiased">
+
+<!-- ============================================================
+     NAVIGATION — sticky, glassmorphism
+============================================================ -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-[96rem] px-4 sm:px-6 lg:px-8">
+    <nav class="mt-4 flex items-center justify-between gap-4 rounded-2xl border border-stone-200/70 bg-white/70 backdrop-blur-xl px-4 sm:px-6 py-3 shadow-[0_4px_24px_-8px_rgba(28,25,23,0.12)]">
+      <!-- Brand -->
+      <a href="#top" class="flex shrink-0 items-center gap-2.5 group">
+        <span class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-stone-200 shadow-sm transition-transform duration-300 group-hover:scale-105">
+          <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/6aa6ad63-9caf-4ed3-9ed7-327c5318ccd7/Parkdentallogo.jpg?format=300w" alt="Park Dental & Denture Clinic logo" class="h-10 w-10 object-contain" />
+        </span>
+        <span class="leading-tight">
+          <span class="block whitespace-nowrap text-[15px] font-bold tracking-tight text-stone-900">Park Dental &amp; Denture</span>
+          <span class="block whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] text-teal-700">Family Dentistry · Lakewood &amp; Kent</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden lg:flex items-center gap-5 xl:gap-8 whitespace-nowrap text-sm font-medium text-stone-600">
+        <a href="#services" class="hover:text-teal-700 transition-colors">Services</a>
+        <a href="#offers" class="hover:text-teal-700 transition-colors">New Patient Offers</a>
+        <a href="#gallery" class="hover:text-teal-700 transition-colors">Gallery</a>
+        <a href="#team" class="hover:text-teal-700 transition-colors">Our Family</a>
+        <a href="#locations" class="hover:text-teal-700 transition-colors">Locations</a>
+        <a href="https://www.parkdentaldenture.com/office-refferals" class="hover:text-teal-700 transition-colors">Office Referrals</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:2535889951" class="hidden min-[1400px]:inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-stone-700 hover:text-teal-700 transition-colors">
+          <i data-lucide="phone" class="h-4 w-4"></i>(253) 588-9951
+        </a>
+        <a href="https://www.parkdentaldenture.com/contact"
+           class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-teal-700/20 transition-all duration-300 hover:bg-teal-800 hover:scale-[1.03] active:scale-95 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2">
+          Contact Us <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 text-stone-700 hover:bg-stone-100 transition-colors" aria-label="Open menu">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden mt-2 rounded-2xl border border-stone-200/70 bg-white/90 backdrop-blur-xl p-4 shadow-lg">
+      <div class="flex flex-col gap-1 text-sm font-medium text-stone-700">
+        <a href="#services" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">Services</a>
+        <a href="#offers" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">New Patient Offers</a>
+        <a href="#gallery" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">Gallery</a>
+        <a href="#team" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">Our Family</a>
+        <a href="#locations" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">Locations</a>
+        <a href="https://www.parkdentaldenture.com/office-refferals" class="rounded-lg px-3 py-2.5 hover:bg-stone-100">Office Referrals</a>
+        <a href="tel:2535889951" class="rounded-lg px-3 py-2.5 text-teal-700 font-semibold">Lakewood: (253) 588-9951</a>
+        <a href="tel:2536563784" class="rounded-lg px-3 py-2.5 text-teal-700 font-semibold">Kent: (253) 656-3784</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — asymmetrical, family photo
+============================================================ -->
+<section id="top" class="relative overflow-hidden grain pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24">
+  <!-- Ambient background washes -->
+  <div class="pointer-events-none absolute -top-40 -right-40 h-[34rem] w-[34rem] rounded-full bg-teal-200/40 blur-3xl"></div>
+  <div class="pointer-events-none absolute top-1/2 -left-48 h-[28rem] w-[28rem] rounded-full bg-amber-100/60 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+
+      <!-- Copy: 7 cols -->
+      <div class="lg:col-span-7 reveal in-view">
+        <div class="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1.5 text-xs font-semibold text-teal-800">
+          <i data-lucide="heart-handshake" class="h-3.5 w-3.5"></i>
+          Family-run · Accepting new patients in Lakewood &amp; Kent
+        </div>
+
+        <h1 class="mt-6 font-serif text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.07] tracking-tight text-stone-900">
+          Honest dentistry,<br />
+          from our family <span class="text-teal-700">to yours.</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-stone-600">
+          High-quality dental care at some of the lowest prices in the Greater Seattle area.
+          Dentures, implants, crowns, cleanings and gentle general dentistry — with honest pricing
+          and a healthy, confident smile that doesn't break the bank.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-5">
+          <a href="https://www.parkdentaldenture.com/contact"
+             class="inline-flex items-center gap-2.5 rounded-xl bg-teal-700 px-7 py-4 text-base font-semibold text-white shadow-lg shadow-teal-700/25 transition-all duration-300 hover:bg-teal-800 hover:scale-[1.03] active:scale-95">
+            Contact Us <i data-lucide="mail" class="h-5 w-5"></i>
+          </a>
+          <a href="#offers" class="group inline-flex items-center gap-2 text-base font-semibold text-stone-700 hover:text-teal-700 transition-colors">
+            See new patient offers
+            <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
+        <!-- Quick stat chips -->
+        <dl class="mt-12 grid max-w-xl grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-stone-200 bg-white/70 backdrop-blur px-4 py-4">
+            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-500">Zirconia Crowns</dt>
+            <dd class="mt-1 text-2xl font-bold text-stone-900">$800</dd>
+          </div>
+          <div class="rounded-2xl border border-stone-200 bg-white/70 backdrop-blur px-4 py-4">
+            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-500">Implant + Crown</dt>
+            <dd class="mt-1 text-2xl font-bold text-stone-900">$3,500</dd>
+          </div>
+          <div class="rounded-2xl border border-stone-200 bg-white/70 backdrop-blur px-4 py-4">
+            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-500">Exam + X-Rays</dt>
+            <dd class="mt-1 text-2xl font-bold text-stone-900">$79</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Photo: 5 cols, offset card stack -->
+      <div class="lg:col-span-5 reveal in-view">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <!-- Decorative offset frame -->
+          <div class="absolute -inset-3 rotate-2 rounded-[2rem] bg-gradient-to-br from-teal-200/70 to-amber-100/70"></div>
+          <figure class="relative overflow-hidden rounded-[1.8rem] border border-white/60 shadow-2xl shadow-stone-900/15">
+            <img src="family-photo.jpg" alt="The family behind Park Dental & Denture Clinic"
+                 class="h-full w-full object-cover"
+                 onerror="this.outerHTML='<div class=&quot;flex aspect-[4/5] items-center justify-center bg-gradient-to-br from-teal-50 to-stone-100 text-center px-8&quot;><p class=&quot;text-sm text-stone-500&quot;>Save the family photo as <strong>family-photo.jpg</strong> in the same folder as this page.</p></div>'" />
+            <figcaption class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/40 bg-white/75 backdrop-blur-md px-5 py-3.5">
+              <p class="text-sm font-semibold text-stone-900">A practice built on family.</p>
+              <p class="text-xs text-stone-600">Caring for Lakewood &amp; Kent, one smile at a time.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST TICKER — insurance accepted
+============================================================ -->
+<section class="border-y border-stone-200 bg-white py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-400">We accept most major dental insurance</p>
+    <div class="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+      <div class="ticker-track flex w-max animate-ticker items-center gap-12 whitespace-nowrap">
+        <!-- Track duplicated for seamless loop -->
+        <div class="flex items-center gap-12 text-stone-500">
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>State Insurance</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>DSHS</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Medicaid</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Apple Health</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Molina</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Delta Dental</span>
+        </div>
+        <div class="flex items-center gap-12 text-stone-500" aria-hidden="true">
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>State Insurance</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>DSHS</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Medicaid</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Apple Health</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Molina</span>
+          <span class="flex items-center gap-2 text-lg font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-teal-600"></i>Delta Dental</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPECIAL OFFERS
+============================================================ -->
+<section id="offers" class="relative overflow-hidden py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+        <i data-lucide="badge-percent" class="h-3.5 w-3.5"></i> Limited-time offers
+      </span>
+      <h2 class="mt-5 font-serif text-3xl sm:text-4xl tracking-tight text-stone-900">New patient specials, no fine print.</h2>
+      <p class="mt-4 text-lg text-stone-600">Take advantage before the promotion ends.</p>
+    </div>
+
+    <div class="reveal mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Offer card -->
+      <div class="group relative rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-teal-900/10">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><i data-lucide="crown" class="h-5 w-5"></i></span>
+        <p class="mt-5 text-3xl font-extrabold tracking-tight text-stone-900">$800</p>
+        <p class="mt-1.5 text-sm font-semibold text-stone-800">Zirconia Dental Crown</p>
+        <p class="mt-2 text-sm leading-relaxed text-stone-500">Among the best crown values in Seattle — strong, biocompatible, lifelike.</p>
+      </div>
+      <div class="group relative rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-teal-900/10">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><i data-lucide="anchor" class="h-5 w-5"></i></span>
+        <p class="mt-5 text-3xl font-extrabold tracking-tight text-stone-900">$3,500</p>
+        <p class="mt-1.5 text-sm font-semibold text-stone-800">Implant &amp; Crown</p>
+        <p class="mt-2 text-sm leading-relaxed text-stone-500">A complete, permanent tooth replacement at one honest price.</p>
+      </div>
+      <div class="group relative rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-teal-900/10">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><i data-lucide="scan-line" class="h-5 w-5"></i></span>
+        <p class="mt-5 text-3xl font-extrabold tracking-tight text-stone-900">$79</p>
+        <p class="mt-1.5 text-sm font-semibold text-stone-800">Comprehensive Exam + X-Rays</p>
+        <p class="mt-2 text-sm leading-relaxed text-stone-500">A full picture of your oral health to start your visit right.</p>
+      </div>
+      <div class="group relative rounded-3xl border-2 border-teal-600 bg-gradient-to-br from-teal-700 to-teal-900 p-7 text-white shadow-lg shadow-teal-900/25 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-white"><i data-lucide="wallet" class="h-5 w-5"></i></span>
+        <p class="mt-5 text-3xl font-extrabold tracking-tight">30%</p>
+        <p class="mt-1.5 text-sm font-semibold">Co-pays &amp; Cash Discounts</p>
+        <p class="mt-2 text-sm leading-relaxed text-teal-100">30% co-pays on all procedures for insured patients, and 30% off most procedures for cash payments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES — bento grid
+============================================================ -->
+<section id="services" class="bg-white py-20 lg:py-28 border-y border-stone-200">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <span class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">What we do</span>
+      <h2 class="mt-4 font-serif text-3xl sm:text-4xl tracking-tight text-stone-900">Modern dentistry, gentle care.</h2>
+      <p class="mt-4 text-lg text-stone-600">From routine cleanings to full-mouth restorations — with iTero digital scanning and our own in-house dental lab.</p>
+    </div>
+
+    <div class="reveal mt-14 grid gap-5 md:grid-cols-6">
+
+      <!-- Crowns & Bridges — large -->
+      <article class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 md:col-span-4 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-md shadow-teal-700/25"><i data-lucide="gem" class="h-6 w-6"></i></span>
+        <h3 class="mt-6 text-xl font-bold text-stone-900">Crowns &amp; Bridges</h3>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-stone-600">
+          Zirconia crowns and bridges with exceptional strength and natural translucency, for both front and back teeth.
+          iTero digital scanning captures ultra-precise 3D images — no messy impressions — and our state-of-the-art
+          in-house lab means quicker turnaround and superior quality control.
+        </p>
+      </article>
+
+      <!-- Dentures -->
+      <article class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 md:col-span-2 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-md shadow-teal-700/25"><i data-lucide="smile-plus" class="h-6 w-6"></i></span>
+        <h3 class="mt-6 text-xl font-bold text-stone-900">Dentures, Partials &amp; Repair</h3>
+        <p class="mt-3 text-sm leading-relaxed text-stone-600">
+          Custom full and partial dentures built for a secure fit and natural look — new sets, repairs and adjustments, all crafted in-house.
+        </p>
+      </article>
+
+      <!-- Cleanings -->
+      <article class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 md:col-span-2 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-md shadow-teal-700/25"><i data-lucide="sparkles" class="h-6 w-6"></i></span>
+        <h3 class="mt-6 text-xl font-bold text-stone-900">Checkups &amp; Cleanings</h3>
+        <p class="mt-3 text-sm leading-relaxed text-stone-600">
+          Gentle, thorough cleanings and comprehensive exams with digital diagnostics — screening for cavities, gum disease and oral cancer early.
+        </p>
+      </article>
+
+      <!-- Everything else — large -->
+      <article class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 md:col-span-4 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-md shadow-teal-700/25"><i data-lucide="stethoscope" class="h-6 w-6"></i></span>
+        <h3 class="mt-6 text-xl font-bold text-stone-900">Complete Family Care</h3>
+        <p class="mt-3 max-w-lg text-sm leading-relaxed text-stone-600">Everything your family's smiles need, under one roof.</p>
+        <ul class="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-stone-700 sm:grid-cols-3">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Cosmetic &amp; Veneers</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Teeth Whitening</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Emergency Care</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Preventive Dentistry</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Sedation Dentistry</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-teal-600"></i>Family Dentistry</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY — a look inside the practice
+============================================================ -->
+<section id="gallery" class="py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Gallery</span>
+      <h2 class="mt-4 font-serif text-3xl sm:text-4xl tracking-tight text-stone-900">A look inside our practice.</h2>
+      <p class="mt-4 text-lg text-stone-600">Our offices, our in-house lab, and the work we're proud of.</p>
+    </div>
+
+    <div class="reveal mt-14 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-4 auto-rows-[10rem] sm:auto-rows-[12rem]">
+      <!-- Lakewood lobby — wide -->
+      <figure class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/3bbc3cd6-bdac-410a-a092-b3648ce0fd95/IMG_9494.jpeg"
+             alt="Lakewood office lobby" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">Lakewood lobby</figcaption>
+      </figure>
+
+      <!-- Zirconia crowns -->
+      <figure class="group relative overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/17e1e66a-06f9-46e9-b544-3689884691c4/zir+crowns.PNG"
+             alt="Zirconia crowns from our in-house lab" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">Zirconia crowns</figcaption>
+      </figure>
+
+      <!-- Denture model -->
+      <figure class="group relative overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/a889c202-f614-4e0d-bdb6-54de6523173b/IMG_4826.jpg"
+             alt="Custom denture on a dental model" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">Custom dentures</figcaption>
+      </figure>
+
+      <!-- Kent operatory — wide -->
+      <figure class="group relative col-span-2 overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/baabfa46-1aa5-446f-9bfa-84e0ed846a14/PARK+DENTAL+KENT+OFFICE+PIC.jpg"
+             alt="Kent clinic operatory" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">Kent operatory</figcaption>
+      </figure>
+
+      <!-- Lakewood entrance -->
+      <figure class="group relative overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/c12605ff-fb01-4086-a806-d6bbac62f5ac/IMG_9493.jpeg"
+             alt="Lakewood clinic front entrance" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">Lakewood entrance</figcaption>
+      </figure>
+
+      <!-- Impression tray -->
+      <figure class="group relative overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/e92d8a9c-f5ae-4f3b-9158-a10b389eb097/4.jfif"
+             alt="Dental impression tray and mold" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <figcaption class="absolute bottom-3 left-3 rounded-xl bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-stone-800">In-house lab work</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTERACTIVE WIDGET — location switcher
+============================================================ -->
+<section id="locations" class="py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal grid gap-12 lg:grid-cols-12 lg:items-center">
+
+      <div class="lg:col-span-5">
+        <span class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Two offices, one family</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl tracking-tight text-stone-900">Visit us in Lakewood or Kent.</h2>
+        <p class="mt-4 text-lg text-stone-600">Interested in working together? Fill out some info on our contact page and we'll be in touch shortly — or give us a call anytime. We can't wait to hear from you.</p>
+        <a href="https://www.parkdentaldenture.com/contact"
+           class="mt-8 inline-flex items-center gap-2.5 rounded-xl bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-700/20 transition-all duration-300 hover:bg-teal-800 hover:scale-[1.03] active:scale-95">
+          Contact Us <i data-lucide="mail" class="h-4 w-4"></i>
+        </a>
+      </div>
+
+      <!-- Switcher card -->
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl border border-stone-200 bg-white p-2 shadow-xl shadow-stone-900/5">
+          <!-- Tabs -->
+          <div class="flex gap-1.5 rounded-2xl bg-stone-100 p-1.5" role="tablist" aria-label="Choose a location">
+            <button class="loc-tab flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-stone-600" role="tab" aria-selected="true" data-loc="lakewood">
+              Lakewood
+            </button>
+            <button class="loc-tab flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-stone-600" role="tab" aria-selected="false" data-loc="kent">
+              Kent
+            </button>
+          </div>
+
+          <!-- Panels -->
+          <div class="p-6 sm:p-8">
+            <div id="panel-lakewood" class="loc-panel grid gap-6 sm:grid-cols-2">
+              <div class="flex items-start gap-3.5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-stone-900">Address</p>
+                  <p class="mt-1 text-sm text-stone-600">8717 S Tacoma Way<br/>Tacoma, WA 98499</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i data-lucide="phone" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-stone-900">Office</p>
+                  <a href="tel:2535889951" class="mt-1 block text-sm text-teal-700 font-semibold hover:underline">(253) 588-9951</a>
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=8717+S+Tacoma+Way+Tacoma+WA+98499" target="_blank" rel="noopener"
+                   class="group inline-flex items-center gap-2 text-sm font-semibold text-stone-700 hover:text-teal-700 transition-colors">
+                  Get directions <i data-lucide="external-link" class="h-4 w-4 transition-transform group-hover:translate-x-0.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <div id="panel-kent" class="loc-panel hidden grid gap-6 sm:grid-cols-2">
+              <div class="flex items-start gap-3.5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-stone-900">Address</p>
+                  <p class="mt-1 text-sm text-stone-600">432 E. Ward St.<br/>Kent, WA 98030</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i data-lucide="phone" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-stone-900">Office &amp; Fax</p>
+                  <a href="tel:2536563784" class="mt-1 block text-sm text-teal-700 font-semibold hover:underline">(253) 656-3784</a>
+                  <p class="text-sm text-stone-600">fax: (253) 487-5118</p>
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=432+E+Ward+St+Kent+WA+98030" target="_blank" rel="noopener"
+                   class="group inline-flex items-center gap-2 text-sm font-semibold text-stone-700 hover:text-teal-700 transition-colors">
+                  Get directions <i data-lucide="external-link" class="h-4 w-4 transition-transform group-hover:translate-x-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEAM — the family behind the practice
+============================================================ -->
+<section id="team" class="bg-white border-y border-stone-200 py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Meet our family</span>
+      <h2 class="mt-4 font-serif text-3xl sm:text-4xl tracking-tight text-stone-900">The people behind your smile.</h2>
+      <p class="mt-4 text-lg text-stone-600">Real people who know your name — not a corporate chain.</p>
+    </div>
+
+    <div class="reveal mt-14 grid gap-6 md:grid-cols-2">
+
+      <!-- Dr. Wisam -->
+      <article class="rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/374d1e40-91ac-4329-a569-33bce5666810/Screenshot+2025-10-31+130637.png"
+               alt="Dr. Wisam Al-Rawi" class="h-16 w-16 rounded-2xl object-cover shadow-md" loading="lazy" />
+          <div>
+            <h3 class="text-lg font-bold text-stone-900">Dr. Wisam Al-Rawi</h3>
+            <p class="text-sm font-medium text-teal-700">Dentist · 20+ Years of Experience</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-stone-600">
+          Specializing in general dentistry, dentures and orthodontics, Dr. Wisam earned his B.D.S. from the University
+          of Baghdad in 2004, followed by two master's degrees in oral imaging and oral radiology, and a DDS from the
+          University of Detroit Mercy in 2015. Known for his patient-centered approach, he explains treatment options
+          clearly and prioritizes comfort. Since 2020 he has served as a Captain Dentist in the U.S. Army Reserves
+          Dental Corps. Outside the clinic, he enjoys the outdoors and hiking with his wife, Nada.
+        </p>
+      </article>
+
+      <!-- Kenny -->
+      <article class="rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/19f7360e-6fac-437f-b608-9ae24fb91fb7/IMG_20251031_115520%7E2.jpg"
+               alt="Kenny Moon, L.D." class="h-16 w-16 rounded-2xl object-cover shadow-md" loading="lazy" />
+          <div>
+            <h3 class="text-lg font-bold text-stone-900">Kenny Moon, L.D.</h3>
+            <p class="text-sm font-medium text-teal-700">Licensed Denturist · 10+ Years in Dental</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-stone-600">
+          A Bates Technical College graduate right here in Tacoma, Kenny is dedicated to helping patients regain
+          confidence through high-quality, personalized denture care — dentures that feel as good as they look.
+          A passionate communicator who speaks multiple languages, he connects with patients from diverse backgrounds.
+          Off the clock you'll find him fishing or caring for his beloved dogs.
+        </p>
+      </article>
+
+      <!-- Thuan -->
+      <article class="rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <img src="unnamed.webp" alt="Thuan, Operations Manager" class="h-16 w-16 rounded-2xl object-cover object-top shadow-md" loading="lazy" />
+          <div>
+            <h3 class="text-lg font-bold text-stone-900">Thuan</h3>
+            <p class="text-sm font-medium text-teal-700">Operations Manager · 15+ Years in Dental</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-stone-600">
+          Thuan believes a great dental visit starts long before you sit in the chair. From coordinating schedules to
+          answering your insurance questions, he works behind the scenes to create a warm, welcoming environment for
+          every patient. Around town, you might spot him photographing local events or vlogging for his YouTube channel.
+        </p>
+      </article>
+
+      <!-- Diane -->
+      <article class="rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 transition-all duration-300 hover:shadow-xl hover:shadow-stone-900/10 hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <img src="Screenshot_20260519-151956.webp" alt="Diane, Dental Assistant" class="h-16 w-16 rounded-2xl object-cover object-top shadow-md" loading="lazy" />
+          <div>
+            <h3 class="text-lg font-bold text-stone-900">Diane</h3>
+            <p class="text-sm font-medium text-teal-700">Dental Assistant · UW Graduate</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-stone-600">
+          A University of Washington graduate, Diane is committed to helping patients feel comfortable and confident in
+          their care. With a strong focus on patient education, infection control and chairside support, she creates a
+          positive, welcoming experience for every visit. Outside the clinic she enjoys weightlifting and reading.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BAND
+============================================================ -->
+<section class="relative overflow-hidden py-20 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-teal-800 via-teal-900 to-stone-900 px-8 py-16 sm:px-14 text-center shadow-2xl shadow-teal-900/30 grain">
+      <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-teal-500/25 blur-3xl"></div>
+      <div class="relative mx-auto mb-8 flex h-32 w-32 sm:h-40 sm:w-40 items-center justify-center rounded-[1.75rem] bg-white shadow-xl shadow-teal-950/40 ring-4 ring-white/20">
+        <img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/6aa6ad63-9caf-4ed3-9ed7-327c5318ccd7/Parkdentallogo.jpg?format=750w"
+             alt="Park Dental & Denture Clinic logo" class="h-28 w-28 sm:h-36 sm:w-36 object-contain" loading="lazy" />
+      </div>
+      <h2 class="relative font-serif text-3xl sm:text-4xl tracking-tight text-white">Accepting new patients now.</h2>
+      <p class="relative mx-auto mt-4 max-w-xl text-lg text-teal-100">Honest pricing, gentle care and modern dentistry — call us today.</p>
+      <div class="relative mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a href="tel:2535889951" class="inline-flex items-center gap-2.5 rounded-xl bg-white px-7 py-4 text-base font-bold text-teal-900 shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
+          <i data-lucide="phone-call" class="h-5 w-5"></i> Lakewood: (253) 588-9951
+        </a>
+        <a href="tel:2536563784" class="inline-flex items-center gap-2.5 rounded-xl border border-white/30 bg-white/10 backdrop-blur px-7 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-white/20 hover:scale-[1.03] active:scale-95">
+          <i data-lucide="phone-call" class="h-5 w-5"></i> Kent: (253) 656-3784
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="border-t border-stone-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid gap-12 lg:grid-cols-12">
+
+      <!-- Brand + newsletter -->
+      <div class="lg:col-span-5">
+        <a href="#top" class="flex items-center gap-2.5">
+          <span class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-stone-200"><img src="https://images.squarespace-cdn.com/content/v1/6828f372a28071623c016550/6aa6ad63-9caf-4ed3-9ed7-327c5318ccd7/Parkdentallogo.jpg?format=300w" alt="Park Dental & Denture Clinic logo" class="h-10 w-10 object-contain" /></span>
+          <span class="text-[15px] font-bold tracking-tight text-stone-900">Park Dental &amp; Denture Clinic</span>
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-stone-600">
+          A family-run dental practice serving Lakewood &amp; Kent, WA. Gentle family dental care with honest pricing in the Greater Seattle area.
+        </p>
+        <form class="mt-6 flex max-w-sm gap-2" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks!';">
+          <label class="sr-only" for="newsletter">Email address</label>
+          <input id="newsletter" type="email" required placeholder="Your email for office updates"
+                 class="w-full rounded-xl border border-stone-300 bg-stone-50 px-4 py-2.5 text-sm placeholder-stone-400 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600/20 transition" />
+          <button type="submit" class="shrink-0 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-teal-800 active:scale-95">Sign up</button>
+        </form>
+      </div>
+
+      <!-- Links -->
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-stone-400">Visit</h4>
+          <ul class="mt-4 space-y-3 text-sm text-stone-600">
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/services">Services</a></li>
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/new-page-1">New Patient Offers</a></li>
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/contact">Get in Touch</a></li>
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-stone-400">For Offices</h4>
+          <ul class="mt-4 space-y-3 text-sm text-stone-600">
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/office-refferals">Office Referrals</a></li>
+            <li><a class="hover:text-teal-700 transition-colors" href="https://www.parkdentaldenture.com/s/2026-Referral-Form.pdf">Download Referral Form</a></li>
+          </ul>
+          <h4 class="mt-8 text-xs font-bold uppercase tracking-[0.14em] text-stone-400">Follow Us</h4>
+          <div class="mt-4 flex gap-3">
+            <a href="https://www.facebook.com/people/Park-Dental-Denture-Clinic/61577000402151/" aria-label="Facebook"
+               class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 text-stone-600 transition-all hover:border-teal-600 hover:text-teal-700 hover:scale-105">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/reel/DL0ohUetChI/" aria-label="Instagram"
+               class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 text-stone-600 transition-all hover:border-teal-600 hover:text-teal-700 hover:scale-105">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-stone-400">Locations</h4>
+          <ul class="mt-4 space-y-5 text-sm text-stone-600">
+            <li>
+              <p class="font-semibold text-stone-800">Kent</p>
+              <p class="mt-1">432 E. Ward St.<br/>Kent, WA 98030</p>
+              <p class="mt-1">off: (253) 656-3784<br/>fax: (253) 487-5118</p>
+            </li>
+            <li>
+              <p class="font-semibold text-stone-800">Lakewood</p>
+              <p class="mt-1">8717 S Tacoma Way<br/>Tacoma, WA 98499</p>
+              <p class="mt-1">off: (253) 588-9951</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-stone-200 pt-8 sm:flex-row">
+      <p class="text-xs text-stone-400">© <span id="year"></span> Park Dental &amp; Denture Clinic. All rights reserved.</p>
+      <p class="text-xs text-stone-400">Family dentistry in Lakewood &amp; Kent, Washington.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script>
+  // Render Lucide icons
+  lucide.createIcons();
+
+  // Current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // Location switcher
+  const tabs = document.querySelectorAll('.loc-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.loc-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('panel-' + tab.dataset.loc).classList.remove('hidden');
+    });
+  });
+  tabs[0].click(); // default: Lakewood
+
+  // Scroll-reveal via IntersectionObserver
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
