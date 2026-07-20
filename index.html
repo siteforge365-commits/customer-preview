@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound Moving Northwest — Local Movers You Can Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: #1b2d5b; }
+
+/* ── MOCKUP BANNER ── */
+.mockup-banner { background: #1b2d5b; color: white; text-align: center; padding: 10px; font-size: 0.8rem; font-weight: 600; letter-spacing: .05em; }
+.mockup-banner span { color: #f26522; }
+
+/* ── NAV ── */
+nav { background: #1b2d5b; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 72px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.87rem; font-weight: 500; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: #f26522; }
+.nav-cta { background: #f26522 !important; color: white !important; padding: 9px 20px; border-radius: 6px; font-weight: 700 !important; }
+.nav-cta:hover { background: #d4551a !important; }
+
+/* ── HERO ── */
+.hero { position: relative; min-height: 580px; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 64px 40px 72px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80'); background-size: cover; background-position: center; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(27,45,91,.92) 0%, rgba(27,45,91,.75) 60%, rgba(27,45,91,.55) 100%); }
+.hero-left { flex: 1; max-width: 520px; position: relative; z-index: 2; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(242,101,34,.2); border: 1.5px solid rgba(242,101,34,.5); color: #f9935a; padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; margin-bottom: 20px; }
+.hero h1 { color: white; font-size: 2.8rem; font-weight: 900; line-height: 1.12; margin-bottom: 18px; }
+.hero h1 span { color: #f26522; }
+.hero p { color: rgba(255,255,255,.8); font-size: 1rem; line-height: 1.75; margin-bottom: 30px; max-width: 420px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: #f26522; color: white; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 16px rgba(242,101,34,.5); transition: all .2s; border: none; cursor: pointer; font-family: inherit; }
+.btn-primary:hover { background: #d4551a; transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: white; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 2px solid rgba(255,255,255,.4); display: inline-flex; align-items: center; gap: 8px; transition: all .2s; }
+.btn-secondary:hover { border-color: white; background: rgba(255,255,255,.1); }
+.hero-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; pointer-events: none; }
+.hero-logo-badge { background: white; border-radius: 20px; padding: 26px 32px; box-shadow: 0 12px 48px rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; }
+.hero-logo-img { width: 300px; display: block; }
+.hero-right { flex-shrink: 0; width: 350px; position: relative; z-index: 2; }
+.quote-card { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.quote-card h3 { font-size: 1.05rem; font-weight: 800; color: #1b2d5b; margin-bottom: 4px; }
+.quote-card > p { font-size: 0.8rem; color: #888; margin-bottom: 18px; }
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: #555; margin-bottom: 4px; }
+.form-group input, .form-group select { width: 100%; padding: 9px 12px; border: 1.5px solid #e0e4ef; border-radius: 7px; font-size: 0.88rem; font-family: inherit; color: #1b2d5b; outline: none; transition: border-color .2s; }
+.form-group input:focus, .form-group select:focus { border-color: #f26522; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-quote { width: 100%; background: #f26522; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; margin-top: 4px; font-family: inherit; transition: background .2s; }
+.btn-quote:hover { background: #d4551a; }
+.quote-note { text-align: center; font-size: 0.7rem; color: #aaa; margin-top: 8px; }
+
+/* ── TRUST BAR ── */
+.trust-bar { background: #f26522; padding: 16px 40px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 8px; color: white; }
+.trust-icon { font-size: 1.2rem; }
+.trust-text { font-size: 0.88rem; font-weight: 600; }
+
+/* ── SECTION SHARED ── */
+.section-label { font-size: 0.73rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.section-title { font-size: 1.9rem; font-weight: 800; color: #1b2d5b; margin-bottom: 10px; }
+.section-sub { color: #666; font-size: 0.95rem; line-height: 1.7; }
+
+/* ── PHOTO STRIP ── */
+.photo-strip-wrap { margin: 0 40px; border-radius: 16px; overflow: hidden; height: 280px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3px; background: #1b2d5b; }
+.photo-strip-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── SERVICES ── */
+.services-section { background: white; padding: 72px 40px; position: relative; z-index: 1; }
+.services-section .section-label, .services-section .section-title { text-align: center; }
+.services-section .section-sub { text-align: center; max-width: 520px; margin: 0 auto 44px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.service-card { border-radius: 14px; overflow: hidden; cursor: pointer; transition: all .2s; box-shadow: 0 2px 12px rgba(0,0,0,.07); border: 1.5px solid #eef0f6; }
+.service-card:hover { box-shadow: 0 8px 32px rgba(242,101,34,.2); transform: translateY(-3px); border-color: #f26522; }
+.service-photo { width: 100%; height: 160px; object-fit: cover; display: block; }
+.service-body { padding: 20px; }
+.service-card h3 { font-size: 1rem; font-weight: 700; color: #1b2d5b; margin-bottom: 4px; }
+.service-rate { font-size: 0.82rem; font-weight: 700; color: #f26522; margin-bottom: 8px; }
+.service-card p { font-size: 0.84rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
+.service-learn { font-size: 0.8rem; font-weight: 700; color: #f26522; }
+
+/* ── SERVICE MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; align-items: center; justify-content: center; z-index: 500; padding: 20px; }
+.modal-overlay.open { display: flex; }
+.modal-box { background: white; border-radius: 16px; padding: 36px; max-width: 560px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: #f4f6fb; border: none; border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+.modal-photo { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+.modal-rate { display: inline-block; background: rgba(242,101,34,.1); color: #f26522; font-weight: 700; font-size: 0.85rem; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+.modal-box h2 { font-size: 1.5rem; font-weight: 800; color: #1b2d5b; margin-bottom: 8px; }
+.modal-box p { color: #555; font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px; }
+.modal-box ul { padding-left: 20px; color: #555; font-size: 0.92rem; line-height: 1.9; margin-bottom: 20px; }
+.modal-cta { width: 100%; }
+
+/* ── PRICING ── */
+.pricing-section { background: #f8f9fc; padding: 72px 40px; }
+.pricing-section .section-label, .pricing-section .section-title { text-align: center; }
+.pricing-section .section-sub { text-align: center; max-width: 540px; margin: 0 auto 44px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto 32px; }
+.price-card { background: white; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06); border-top: 4px solid #e0e4ef; }
+.price-card.highlight { border-top-color: #f26522; }
+.price-size { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #f26522; margin-bottom: 6px; }
+.price-label { font-size: 1rem; font-weight: 700; color: #1b2d5b; margin-bottom: 4px; }
+.price-items { font-size: 0.8rem; color: #888; margin-bottom: 14px; }
+.price-range { font-size: 1.6rem; font-weight: 900; color: #1b2d5b; }
+.price-range span { font-size: 0.85rem; font-weight: 500; color: #888; }
+.price-detail { font-size: 0.78rem; color: #aaa; margin-top: 6px; line-height: 1.5; }
+.price-note { text-align: center; font-size: 0.82rem; color: #888; max-width: 660px; margin: 0 auto; line-height: 1.7; }
+
+/* ── HOW IT WORKS ── */
+.how-section { background: #f8f9fc; padding: 80px 40px; }
+.how-section .section-label, .how-section .section-title { text-align: center; }
+.how-section .section-sub { text-align: center; max-width: 480px; margin: 0 auto 56px; }
+.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
+.how-steps::before { content: ''; position: absolute; top: 36px; left: calc(16.666% + 20px); right: calc(16.666% + 20px); height: 2px; background: linear-gradient(90deg, #f26522, #f26522); background-image: repeating-linear-gradient(90deg, #f26522 0, #f26522 12px, transparent 12px, transparent 20px); }
+.how-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 24px; }
+.how-num { width: 72px; height: 72px; border-radius: 50%; background: #f26522; color: white; font-size: 1.6rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 6px 24px rgba(242,101,34,.35); position: relative; z-index: 1; }
+.how-step h3 { font-size: 1.05rem; font-weight: 800; color: #1b2d5b; margin-bottom: 8px; }
+.how-step p { font-size: 0.88rem; color: #666; line-height: 1.7; }
+
+/* ── WHY US ── */
+.whyus-section { background: white; padding: 80px 40px; }
+.whyus-section .section-label, .whyus-section .section-title { text-align: center; }
+.whyus-section .section-sub { text-align: center; max-width: 520px; margin: 0 auto 48px; }
+.compare-table { max-width: 860px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,0,0,.09); }
+.compare-header { display: grid; grid-template-columns: 2fr 1fr 1fr; background: #1b2d5b; }
+.compare-header div { padding: 16px 20px; font-size: 0.85rem; font-weight: 700; color: white; text-align: center; }
+.compare-header .col-us { background: #f26522; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; border-bottom: 1px solid #f0f2f8; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row:nth-child(odd) { background: #fafbff; }
+.compare-row:nth-child(even) { background: white; }
+.compare-row div { padding: 15px 20px; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; }
+.compare-row .compare-feature { justify-content: flex-start; font-weight: 600; color: #333; }
+.compare-row .col-us { color: #1b2d5b; font-weight: 700; }
+.check { color: #22c55e; font-size: 1.2rem; }
+.cross { color: #ef4444; font-size: 1.1rem; }
+.partial { color: #f59e0b; font-size: 0.82rem; font-weight: 600; }
+
+/* ── REVIEWS ── */
+.reviews-section { background: white; padding: 72px 40px; }
+.reviews-section .section-label, .reviews-section .section-title { text-align: center; }
+.reviews-header { text-align: center; margin-bottom: 48px; }
+.google-badge { display: inline-flex; align-items: center; gap: 10px; background: #f8f9fc; border: 1.5px solid #e0e4ef; border-radius: 100px; padding: 10px 20px; margin-top: 16px; }
+.google-badge img { width: 20px; height: 20px; }
+.google-badge-text { font-size: 0.88rem; font-weight: 700; color: #1b2d5b; }
+.google-badge-stars { color: #FBBC04; font-size: 1rem; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto 32px; }
+.review-card { background: #fafbff; border: 1.5px solid #eef0f6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.review-top { display: flex; align-items: center; gap: 12px; }
+.reviewer-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.reviewer-info h4 { font-size: 0.9rem; font-weight: 700; color: #1b2d5b; }
+.reviewer-info p { font-size: 0.75rem; color: #999; }
+.review-stars { color: #FBBC04; font-size: 0.95rem; letter-spacing: 1px; }
+.review-text { font-size: 0.88rem; color: #444; line-height: 1.7; }
+.review-source { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #aaa; font-weight: 600; margin-top: auto; padding-top: 8px; border-top: 1px solid #eee; }
+.reviews-cta { text-align: center; }
+.reviews-cta p { font-size: 0.88rem; color: #888; margin-bottom: 4px; }
+.reviews-cta a { color: #f26522; font-weight: 700; text-decoration: none; font-size: 0.88rem; }
+
+/* ── OUR STORY ── */
+.story-section { background: #1b2d5b; padding: 80px 40px; position: relative; overflow: hidden; }
+.story-section::before { content: ''; position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=60'); background-size: cover; background-position: center; opacity: 0.07; }
+.story-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; }
+.story-left .section-label { color: #f26522; }
+.story-left h2 { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 20px; }
+.story-left p { color: rgba(255,255,255,.75); font-size: 0.95rem; line-height: 1.85; margin-bottom: 16px; }
+.story-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 24px 20px; text-align: center; }
+.stat-num { font-size: 2.2rem; font-weight: 900; color: #f26522; }
+.stat-label { font-size: 0.8rem; color: rgba(255,255,255,.65); margin-top: 4px; font-weight: 500; }
+
+/* ── AREAS ── */
+.areas-section { background: #f8f9fc; padding: 72px 40px; text-align: center; }
+.areas-section .section-sub { max-width: 520px; margin: 0 auto 40px; }
+.area-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.area-tag { background: white; border: 1.5px solid #e0e4ef; color: #1b2d5b; padding: 10px 20px; border-radius: 100px; font-weight: 600; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.area-tag .dot { width: 7px; height: 7px; background: #f26522; border-radius: 50%; flex-shrink: 0; }
+
+/* ── CTA ── */
+.cta-section { position: relative; padding: 80px 40px; text-align: center; color: white; overflow: hidden; }
+.cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1400&q=70'); background-size: cover; background-position: center; }
+.cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(27,45,91,.94), rgba(36,58,115,.88)); }
+.cta-inner { position: relative; z-index: 2; }
+.cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,.75); font-size: 1rem; margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer { background: #0d1628; color: rgba(255,255,255,.5); padding: 40px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.footer-brand { color: white; font-weight: 800; font-size: 1rem; margin-bottom: 8px; }
+.footer-tagline { font-size: 0.82rem; line-height: 1.6; margin-bottom: 16px; }
+.footer-contact { font-size: 0.85rem; line-height: 2; }
+.footer-contact a { color: #f26522; text-decoration: none; }
+.footer-col h4 { color: white; font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .06em; }
+.footer-col a { display: block; color: rgba(255,255,255,.5); text-decoration: none; font-size: 0.85rem; margin-bottom: 8px; }
+.footer-col a:hover { color: #f26522; }
+.footer-bottom { background: #080f1e; text-align: center; padding: 14px 40px; font-size: 0.78rem; color: rgba(255,255,255,.3); }
+
+/* ── CHATBOT ── */
+.chatbot-bubble { position: fixed; bottom: 28px; right: 28px; width: 58px; height: 58px; background: #f26522; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 20px rgba(242,101,34,.5); z-index: 200; transition: transform .2s; }
+.chatbot-bubble:hover { transform: scale(1.08); }
+.chatbot-window { position: fixed; bottom: 98px; right: 28px; width: 310px; background: white; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.2); z-index: 200; overflow: hidden; display: none; }
+.chatbot-window.open { display: block; }
+.chat-header { background: #1b2d5b; color: white; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
+.chat-avatar { width: 32px; height: 32px; background: #f26522; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+.chat-header-text h4 { font-size: 0.88rem; font-weight: 700; }
+.chat-header-text p { font-size: 0.7rem; color: rgba(255,255,255,.65); }
+.chat-body { padding: 14px; height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #fafbff; }
+.chat-msg { max-width: 82%; padding: 9px 13px; border-radius: 12px; font-size: 0.83rem; line-height: 1.5; }
+.chat-msg.bot { background: white; color: #1b2d5b; align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.chat-msg.user { background: #f26522; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+.chat-input-row { display: flex; border-top: 1px solid #eee; }
+.chat-input-row input { flex: 1; border: none; padding: 11px 13px; font-family: inherit; font-size: 0.83rem; outline: none; background: white; }
+.chat-input-row button { background: #f26522; color: white; border: none; padding: 11px 14px; cursor: pointer; font-size: 0.95rem; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50%       { transform: translate(-50%, -50%) translateY(-10px); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero entrance */
+.hero-left { animation: slideRight .8s ease both; }
+.hero-right { animation: fadeUp .9s .2s ease both; }
+.hero-center { animation: float 4s ease-in-out infinite; }
+
+/* Reveal class — added by JS when element scrolls into view */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+.reveal-delay-5 { transition-delay: .5s; }
+
+/* Trust bar slide-in */
+.trust-item { animation: fadeUp .5s ease both; }
+.trust-item:nth-child(1) { animation-delay: .05s; }
+.trust-item:nth-child(2) { animation-delay: .1s; }
+.trust-item:nth-child(3) { animation-delay: .15s; }
+.trust-item:nth-child(4) { animation-delay: .2s; }
+.trust-item:nth-child(5) { animation-delay: .25s; }
+
+/* Chatbot pulse */
+@keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(242,101,34,.5)} 50%{box-shadow:0 4px 32px rgba(242,101,34,.85)} }
+.chatbot-bubble { animation: pulse 2.5s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">📋 MOCKUP — <span>Sound Moving Northwest</span> — Designed by Hudson</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div style="background:white;border-radius:8px;padding:4px 8px;display:flex;align-items:center;justify-content:center;">
+      <img src="https://soundmovingnw.com/wp-content/uploads/2025/07/USE-THIS-LOGO-NEWEST.png"
+           alt="Sound Moving Northwest"
+           style="height:42px;width:auto;display:block;"
+           onerror="this.parentElement.style.display='none'">
+    </div>
+    <span style="color:white;font-weight:800;font-size:1rem;line-height:1.25">Sound Moving<br>Northwest</span>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Prices</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#areas">Service Areas</a>
+    <a href="#story">Our Story</a>
+    <a href="#contact">Contact</a>
+    <a href="#hero" class="nav-cta">Get a Free Quote →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <div class="hero-badge">📍 Based in Lynnwood, WA · Serving Greater Seattle</div>
+    <h1>Local Movers You Can<br>Actually <span>Afford.</span></h1>
+    <p>Family-owned since 1979. Serving Seattle, Lynnwood, Marysville, and all of Snohomish County. Real pricing online in minutes — no sales calls, no surprises.</p>
+    <div class="hero-btns">
+      <a href="#hero" class="btn-primary">📋 Get My Free Quote</a>
+      <a href="tel:4252121755" class="btn-secondary">📞 425-212-1755</a>
+    </div>
+  </div>
+  <div class="hero-center">
+    <div class="hero-logo-badge">
+      <img src="https://soundmovingnw.com/wp-content/uploads/2025/07/USE-THIS-LOGO-NEWEST.png"
+           alt="Sound Moving Northwest"
+           class="hero-logo-img"
+           onerror="this.parentElement.style.display='none'">
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="quote-card">
+      <h3>Get Your Free Online Quote</h3>
+      <p>Real pricing. No obligation. Takes 2 minutes.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Moving From</label><input type="text" placeholder="City or ZIP"></div>
+        <div class="form-group"><label>Moving To</label><input type="text" placeholder="City or ZIP"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Home Size</label>
+          <select>
+            <option>Studio / 1BR</option>
+            <option>Large 1BR / 2BR</option>
+            <option>3 Bedroom</option>
+            <option>4 Bedroom</option>
+            <option>5+ Bedroom</option>
+            <option>Office / Commercial</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Move Date</label><input type="date"></div>
+      </div>
+      <div class="form-group"><label>Your Phone</label><input type="tel" placeholder="(425) 000-0000"></div>
+      <button class="btn-quote">See My Price →</button>
+      <p class="quote-note">🔒 No spam. We'll text or call with your quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✅</span><span class="trust-text">Licensed & Insured</span></div>
+  <div class="trust-item"><span class="trust-icon">⭐</span><span class="trust-text">5-Star Google Reviews</span></div>
+  <div class="trust-item"><span class="trust-icon">💵</span><span class="trust-text">Rates from $140/hr</span></div>
+  <div class="trust-item"><span class="trust-icon">📱</span><span class="trust-text">Book & Quote Online</span></div>
+  <div class="trust-item"><span class="trust-icon">🏡</span><span class="trust-text">Family-Owned Since 1979</span></div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div style="background:white; padding: 32px 0 0;">
+<div class="photo-strip-wrap">
+  <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=900&q=80" alt="Movers at work">
+  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Packing boxes">
+  <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=500&q=80" alt="New home">
+  <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=500&q=80" alt="Moving day">
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-label">Simple Process</div>
+  <h2 class="section-title">Moving Made Easy — 3 Steps</h2>
+  <p class="section-sub">No confusing quotes, no surprise fees. Here's exactly what happens when you book with us.</p>
+  <div class="how-steps">
+    <div class="how-step reveal reveal-delay-1">
+      <div class="how-num">1</div>
+      <h3>Get Your Free Quote</h3>
+      <p>Fill out our quick online form or give us a call. We'll give you a real price based on your home size, distance, and move date — no guesswork.</p>
+    </div>
+    <div class="how-step reveal reveal-delay-2">
+      <div class="how-num">2</div>
+      <h3>Book Your Move Date</h3>
+      <p>Pick a date that works for you. We'll confirm your crew, your truck, and everything you need. No deposit required to hold your spot.</p>
+    </div>
+    <div class="how-step reveal reveal-delay-3">
+      <div class="how-num">3</div>
+      <h3>We Handle Everything</h3>
+      <p>Our crew shows up on time, wraps and pads everything, loads and unloads, and does a final walk-through to make sure you're 100% happy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Full-Service Moving, Done Right</h2>
+  <p class="section-sub">Click any service to learn more about what's included.</p>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1" onclick="openModal('residential')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?w=600&q=80" alt="Residential Moving">
+      <div class="service-body">
+        <h3>Residential Moving</h3>
+        <div class="service-rate">From $140/hr · 2 crew + truck</div>
+        <p>Houses, condos, apartments — across town or across the state.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2" onclick="openModal('commercial')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80" alt="Commercial Moving">
+      <div class="service-body">
+        <h3>Commercial Moving</h3>
+        <div class="service-rate">From $140/hr · 2 crew + truck</div>
+        <p>Offices, workspaces, high-rises, studios — get back to work fast.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-3" onclick="openModal('packing')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Packing Services">
+      <div class="service-body">
+        <h3>Packing Services</h3>
+        <div class="service-rate">From $60/hr</div>
+        <p>Experienced packers and unpackers for your home or office.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-1" onclick="openModal('furniture')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&fit=crop&crop=center" alt="Oversized Furniture">
+      <div class="service-body">
+        <h3>Oversized Furniture</h3>
+        <div class="service-rate">From $140/hr</div>
+        <p>Large and odd-sized furniture, pianos — done quickly and safely.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2" onclick="openModal('junk')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1618354691792-d1d42acfd860?w=600&q=80" alt="Junk Removal">
+      <div class="service-body">
+        <h3>Junk Removal & Donation</h3>
+        <div class="service-rate">From $140/hr</div>
+        <p>Let us declutter your life. You have enough to worry about.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-3" onclick="openModal('labor')">
+      <img class="service-photo" src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&q=80" alt="Labor Only">
+      <div class="service-body">
+        <h3>Labor Only</h3>
+        <div class="service-rate">From $140/hr</div>
+        <p>When you just need some extra muscle — call the professionals.</p>
+        <div class="service-learn">Learn More →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="serviceModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img class="modal-photo" id="modalPhoto" src="" alt="">
+    <div class="modal-rate" id="modalRate"></div>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <ul id="modalList"></ul>
+    <button class="btn-primary modal-cta" onclick="closeModal();document.getElementById('hero').scrollIntoView({behavior:'smooth'})">📋 Get a Free Quote</button>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Transparent Pricing</div>
+  <h2 class="section-title">Know Your Cost Before Moving Day</h2>
+  <p class="section-sub">Estimates based on home size. Many factors can affect the final cost — distance, stairs, number of items, and more.</p>
+  <div class="pricing-grid">
+    <div class="price-card reveal reveal-delay-1">
+      <div class="price-size">Studio / Small 1BR</div>
+      <div class="price-label">About 1–20 Items</div>
+      <div class="price-items">2 movers · 1–3 hours</div>
+      <div class="price-range">$300–$600 <span>approx</span></div>
+      <div class="price-detail">Perfect for apartments and small single-room moves.</div>
+    </div>
+    <div class="price-card">
+      <div class="price-size">Large 1BR / 2BR</div>
+      <div class="price-label">About 21–50 Items</div>
+      <div class="price-items">2 movers · 4–6 hours</div>
+      <div class="price-range">$650–$900 <span>approx</span></div>
+      <div class="price-detail">Great for 1–2 bedroom moves across town or the state.</div>
+    </div>
+    <div class="price-card highlight">
+      <div class="price-size">3 Bedroom</div>
+      <div class="price-label">About 50–100 Items</div>
+      <div class="price-items">3 movers · 6–9 hours</div>
+      <div class="price-range">$1,000–$1,500 <span>approx</span></div>
+      <div class="price-detail">Our most common move. Full crew, full truck, full service.</div>
+    </div>
+    <div class="price-card">
+      <div class="price-size">4 Bedroom</div>
+      <div class="price-label">About 101–200 Items</div>
+      <div class="price-items">3–4 movers · 7–9 hours</div>
+      <div class="price-range">$1,600–$2,400 <span>approx</span></div>
+      <div class="price-detail">May require a second vehicle. Walk-through available on request.</div>
+    </div>
+    <div class="price-card">
+      <div class="price-size">5 Bedroom</div>
+      <div class="price-label">About 201–350 Items</div>
+      <div class="price-items">4 movers · 7–9 hours</div>
+      <div class="price-range">$2,400–$3,500 <span>approx</span></div>
+      <div class="price-detail">Large home moves. Walk-through recommended.</div>
+    </div>
+    <div class="price-card">
+      <div class="price-size">Not Sure?</div>
+      <div class="price-label">Get an Exact Quote</div>
+      <div class="price-items">Online or free walk-through</div>
+      <div class="price-range" style="font-size:1.1rem;margin-top:8px">Free Estimate</div>
+      <div class="price-detail" style="margin-top:10px"><button class="btn-primary" style="width:100%;justify-content:center;font-size:0.85rem;padding:10px" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">Get My Quote →</button></div>
+    </div>
+  </div>
+  <p class="price-note">⚡ Rates start at <strong>$140/hr for residential moves</strong> (2 crew + truck) and <strong>$60/hr for packing</strong>. Payments accepted: Cash, Check, Venmo, Zelle, or Credit Card (4% fee).</p>
+</section>
+
+<!-- WHY US -->
+<section class="whyus-section" id="whyus">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">Local vs. The Big Guys</h2>
+  <p class="section-sub">National chains have call centers, hidden fees, and strangers handling your stuff. We're your neighbors — and it shows.</p>
+  <div class="compare-table">
+    <div class="compare-header">
+      <div></div>
+      <div class="col-us">⭐ Sound Moving NW</div>
+      <div>National Chains</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Family-owned & locally operated</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="cross">✗</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Upfront pricing with no hidden fees</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Sometimes</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Online quote in under 2 minutes</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Usually requires a call</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Same crew from start to finish</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="cross">✗</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Rates starting at $140/hr</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Often $180–$250/hr</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Live chat & fast response</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Call center queues</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">Full walk-through before & after</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Not always included</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-feature">45+ years of moving experience</div>
+      <div class="col-us"><span class="check">✔</span></div>
+      <div><span class="partial">Varies by franchise</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-header">
+    <div class="section-label">What Customers Say</div>
+    <h2 class="section-title">Real Reviews from Real Customers</h2>
+    <div class="google-badge">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      <span class="google-badge-stars">★★★★★</span>
+      <span class="google-badge-text">5.0 · Google Reviews</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=47" alt="Sarah M.">
+        <div class="reviewer-info">
+          <h4>Sarah M.</h4>
+          <p>Marysville, WA · 2 months ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"These guys were AMAZING. Showed up on time, wrapped everything perfectly, and had my 3-bedroom house loaded in under 3 hours. I've used other movers before but Sound Moving NW is on another level. Will 100% use again."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=12" alt="James T.">
+        <div class="reviewer-info">
+          <h4>James T.</h4>
+          <p>Everett, WA · 1 month ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Moved my office from Everett to Lynnwood and these guys handled everything — computers, furniture, the works. Zero damage, professional the whole time. Price was exactly what they quoted. No hidden fees."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=32" alt="Lisa K.">
+        <div class="reviewer-info">
+          <h4>Lisa K.</h4>
+          <p>Lake Stevens, WA · 3 weeks ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Used them for a last-minute move and they pulled it off. Kind, respectful, treated my things like their own. My piano made it in perfect condition — I was so nervous about that. Can't recommend enough."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=58" alt="Mike R.">
+        <div class="reviewer-info">
+          <h4>Mike R.</h4>
+          <p>Snohomish, WA · 5 weeks ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best movers I've ever hired, and I've moved 6 times. These guys hustle — no standing around. They finished a 4-bedroom move 2 hours under the estimate. Saved me $280. Honest, fast, professional."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=25" alt="Angela P.">
+        <div class="reviewer-info">
+          <h4>Angela P.</h4>
+          <p>Lynnwood, WA · 2 months ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Called on a Wednesday, moved by Friday. They fit us in last-minute and didn't rush at all. Every single item was wrapped and labeled. I was blown away. Family-run and it really shows — they actually care."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="reviewer-avatar" src="https://i.pravatar.cc/80?img=65" alt="David W.">
+        <div class="reviewer-info">
+          <h4>David W.</h4>
+          <p>Mukilteo, WA · 1 month ago</p>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Got 3 quotes and Sound Moving NW was the fairest AND the most professional. They padded everything, did a full walk-through before and after, and didn't stop working until we were completely satisfied. Earned a customer for life."</p>
+      <div class="review-source">
+        <svg width="14" height="14" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Posted on Google
+      </div>
+    </div>
+  </div>
+  <div class="reviews-cta">
+    <p>These are placeholder reviews for the mockup.</p>
+    <a href="https://www.google.com/search?q=Sound+Moving+NW+reviews" target="_blank">See all real Google reviews →</a>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-left">
+      <div class="section-label">Our Story</div>
+      <h2>Let Our Family Move Yours</h2>
+      <p>Raised in Seattle, our father started his first moving company in 1979 and taught us from day one to be professional and focused on you — the customer.</p>
+      <p>Learning the ins and outs of the moving business since high school, we've continued that family tradition: putting customers first and delivering a moving experience you can actually rest easy about.</p>
+      <p>Sound Moving NW is fully licensed and insured, and every customer gets a personalized moving experience. There may be other moving companies — but none retain the customer appreciation we do.</p>
+    </div>
+    <div class="story-right">
+      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Years in the Family Business</div></div>
+      <div class="stat-card"><div class="stat-num">5★</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat-card"><div class="stat-num">✔</div><div class="stat-label">Licensed & Fully Insured</div></div>
+      <div class="stat-card"><div class="stat-num">✔</div><div class="stat-label">Kind & Respectful Staff</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas-section" id="areas">
+  <div class="section-label">Where We Work</div>
+  <h2 class="section-title">Serving Seattle, Lynnwood & Surrounding Areas</h2>
+  <p class="section-sub">Based in Lynnwood — covering the greater Seattle area and all surrounding communities.</p>
+  <div class="area-tags">
+    <div class="area-tag"><span class="dot"></span>Seattle</div>
+    <div class="area-tag"><span class="dot"></span>Lynnwood</div>
+    <div class="area-tag"><span class="dot"></span>Marysville</div>
+    <div class="area-tag"><span class="dot"></span>Everett</div>
+    <div class="area-tag"><span class="dot"></span>Lake Stevens</div>
+    <div class="area-tag"><span class="dot"></span>Snohomish</div>
+    <div class="area-tag"><span class="dot"></span>Arlington</div>
+    <div class="area-tag"><span class="dot"></span>Monroe</div>
+    <div class="area-tag"><span class="dot"></span>Mukilteo</div>
+    <div class="area-tag"><span class="dot"></span>Bothell</div>
+    <div class="area-tag"><span class="dot"></span>Mill Creek</div>
+    <div class="area-tag"><span class="dot"></span>Stanwood</div>
+    <div class="area-tag"><span class="dot"></span>Mountlake Terrace</div>
+    <div class="area-tag"><span class="dot"></span>+ Surrounding Areas</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="section-label" style="color:#f26522">Ready to Move?</div>
+    <h2>Get Your Free Quote in 2 Minutes</h2>
+    <p>No sales calls. No pressure. Just real pricing from a local team that's been doing this since 1979.</p>
+    <div class="cta-btns">
+      <a href="#hero" class="btn-primary">📋 Get My Free Online Quote →</a>
+      <a href="tel:4252121755" class="btn-secondary">📞 425-212-1755</a>
+    </div>
+    <p style="margin-top:16px;font-size:0.82rem;color:rgba(255,255,255,.45)">Or call for a free walk-through: <strong style="color:rgba(255,255,255,.7)">360-548-9216</strong></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Sound Moving Northwest</div>
+    <p class="footer-tagline">Family-owned and operated since 1979. Serving Seattle, Lynnwood, and all of Snohomish County.</p>
+    <div class="footer-contact">
+      📞 <a href="tel:4252121755">425-212-1755</a><br>
+      ✉️ <a href="mailto:info@soundmovingnw.com">info@soundmovingnw.com</a><br>
+      📍 3825 170th Street SW, Lynnwood, WA 98037<br>
+      DOT: 4501511 · UTC: HG069611
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <a href="#services">Residential Moving</a>
+    <a href="#services">Commercial Moving</a>
+    <a href="#services">Packing Services</a>
+    <a href="#services">Oversized Furniture</a>
+    <a href="#services">Junk Removal</a>
+    <a href="#services">Labor Only</a>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="#pricing">Pricing</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#story">Our Story</a>
+    <a href="#areas">Service Areas</a>
+    <a href="#contact">Contact</a>
+    <a href="#hero">Get a Quote</a>
+  </div>
+</footer>
+<div class="footer-bottom">© 2025 Sound Moving Northwest. All Rights Reserved. Licensed · Insured · Family-Owned.</div>
+
+<!-- CHATBOT -->
+<div class="chatbot-bubble" onclick="toggleChat()">💬</div>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">🚛</div>
+    <div class="chat-header-text">
+      <h4>Sound Moving NW</h4>
+      <p>🟢 Online — replies in minutes</p>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi there! 👋 Looking to move? I can help you get a free quote or answer any questions.</div>
+    <div class="chat-msg bot">What can I help you with today?</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" placeholder="Type a message..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
+    <button onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+// ── RIGHT-CLICK & SOURCE PROTECTION ──
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12') e.preventDefault();
+  if (e.ctrlKey && ['u','U','s','S','a','A'].includes(e.key)) e.preventDefault();
+  if (e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C'].includes(e.key)) e.preventDefault();
+});
+
+const modalData = {
+  residential: { photo:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80', rate:'From $140/hr · 2 crew + truck', title:'Residential Moving', desc:'Whether you\'re moving across town or across the state, our residential moving team handles everything with care. We treat your belongings like our own — from the first box to the last piece of furniture.', list:['Houses, condos, and apartments of all sizes','Local and long-distance moves','Full-service loading and unloading','2-crew minimum with truck included','Free walk-through estimates available'] },
+  commercial: { photo:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80', rate:'From $140/hr · 2 crew + truck', title:'Commercial Moving', desc:'Office relocations, workspaces, high-rises, studios — we get you back to work fast and hassle-free. We work around your schedule to minimize downtime.', list:['Offices and workspaces of all sizes','High-rise and studio moves','Flexible scheduling including evenings and weekends','Fully insured commercial moving team'] },
+  packing: { photo:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80', rate:'From $60/hr', title:'Packing Services', desc:'Don\'t want to pack? We\'ve got you. Our experienced packers protect your valuables the right way — using professional materials and proven techniques.', list:['Full home or office packing and unpacking','Professional packing materials provided','Fragile and specialty item wrapping','Labeling and inventory tracking'] },
+  furniture: { photo:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80', rate:'From $140/hr', title:'Oversized Furniture Moving', desc:'Large, heavy, or oddly shaped items are our specialty. Pianos, antiques, sectionals, safes — we get it done quickly and safely without damage.', list:['Pianos and large musical instruments','Safes, gun cabinets, and heavy equipment','Sectionals, beds, and bulky furniture','White-glove handling for antiques and valuables'] },
+  junk: { photo:'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=700&q=80', rate:'From $140/hr', title:'Junk Removal & Donation', desc:'Let us declutter your life. Whether you\'re clearing out before a move or just need a fresh start, we\'ll haul away what you don\'t want and donate what we can.', list:['Full property or single-room cleanouts','Furniture and appliance removal','Donation drop-off included where possible','Estate cleanouts welcome'] },
+  labor: { photo:'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80', rate:'From $140/hr', title:'Labor Only', desc:'Renting your own truck but need some muscle? Our labor-only service gives you professional movers without the truck — perfect for loading, unloading, or rearranging.', list:['Load or unload your own rental truck','Help rearranging furniture in your home','Move items between storage units','Minimum 2-hour booking'] }
+};
+
+function openModal(key) {
+  const d = modalData[key];
+  document.getElementById('modalPhoto').src = d.photo;
+  document.getElementById('modalRate').textContent = d.rate;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalDesc').textContent = d.desc;
+  document.getElementById('modalList').innerHTML = d.list.map(i=>`<li>${i}</li>`).join('');
+  document.getElementById('serviceModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('serviceModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Section headings reveal
+document.querySelectorAll('.section-title, .section-label, .section-sub').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = `opacity .6s ${i * 0.08}s ease, transform .6s ${i * 0.08}s ease`;
+  const hObs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; hObs.unobserve(el); }
+  }, { threshold: 0.2 });
+  hObs.observe(el);
+});
+
+// Review cards stagger
+document.querySelectorAll('.review-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = `opacity .55s ${i * 0.1}s ease, transform .55s ${i * 0.1}s ease`;
+  const rObs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; rObs.unobserve(el); }
+  }, { threshold: 0.1 });
+  rObs.observe(el);
+});
+
+// Area tags stagger
+document.querySelectorAll('.area-tag').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'scale(.9)';
+  el.style.transition = `opacity .4s ${i * 0.05}s ease, transform .4s ${i * 0.05}s ease`;
+  const aObs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'scale(1)'; aObs.unobserve(el); }
+  }, { threshold: 0.1 });
+  aObs.observe(el);
+});
+
+function toggleChat() { document.getElementById('chatWindow').classList.toggle('open'); }
+function sendMsg() {
+  const input = document.getElementById('chatInput');
+  const body = document.getElementById('chatBody');
+  if (!input.value.trim()) return;
+  const u = document.createElement('div'); u.className='chat-msg user'; u.textContent=input.value; body.appendChild(u);
+  input.value = ''; body.scrollTop = body.scrollHeight;
+  setTimeout(() => {
+    const b = document.createElement('div'); b.className='chat-msg bot';
+    b.textContent='Thanks for reaching out! Get instant pricing using the quote form at the top of the page, or call us at 425-212-1755 and we\'ll take care of you.';
+    body.appendChild(b); body.scrollTop = body.scrollHeight;
+  }, 900);
+}
+</script>
+</body>
+</html>
